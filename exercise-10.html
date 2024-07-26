@@ -49,9 +49,8 @@
       }
 
       img {
-        display: block;
+        display: flex;
         max-width: 100%;
-        height: auto;
       }
 
       .container {
@@ -182,13 +181,52 @@
         height: 0.8rem;
         background-color: white;
         border-radius: 50%;
+        animation: 1.2s infinite ease-in-out ScaleUp;
       }
 
-      @keyframes scaleUp {
+      .button--loader div:nth-child(1) {
+        animation-delay: -0.4s;
+      }
+
+      .button--loader div:nth-child(2) {
+        animation-delay: -0.2s;
+      }
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 3.5rem;
+      }
+
+      .button--loader {
+        display: none;
+      }
+
+      .button.loading .button--text {
+        display: none;
+      }
+
+      .button.loading .button--loader {
+        display: flex;
+      }
+
+      .button.success {
+        background-color: var(--contextual-success-base);
+      }
+
+      .button.loading {
+        cursor: wait;
+      }
+
+      @keyframes ScaleUp {
         0%,
         80%,
         100% {
           transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
         }
       }
     </style>
