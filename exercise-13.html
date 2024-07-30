@@ -389,6 +389,50 @@
           transform: translate3d(0, -4px, 0) scaleY(1.02);
         }
       }
+      /*Dotted line*/
+      #dotted-line {
+        stroke: #aed1e5;
+        stroke-width: 3px;
+        stroke-dasharray: 8 8;
+        stroke-dashoffset: 120;
+        stroke-linecap: round;
+        animation: dash 5s infinite;
+      }
+
+      @keyframes dash {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /*Travel icons */
+      .animated-icon {
+        transform-origin: center;
+        animation: 1s ease-in-out breathe;
+      }
+
+      .animaed {
+        animation: 1s ease-in-out brethe;
+      }
+
+      #icon-boat {
+        animation-delay: 1s;
+      }
+      #icon-bus {
+        animation-delay: 2s;
+      }
+      #icon-train {
+        animation-delay: 3s;
+      }
+      @keyframes breathe {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.4);
+        }
+      }
     </style>
   </head>
   <body>
@@ -446,10 +490,27 @@
       const rootElement = document.documentElement;
 
       menuButton.addEventListener("click", () => {
+        icon.classList.remove;
         rootElement.toggleAttribute("menu-open");
       });
 
       // Air
+      function animateIcons() {
+        const icons = document.querySelectorAll(".animated_icons");
+
+        icons.forEach((icon) => {
+          icon.classList.remove("animated");
+        });
+
+        /*Force reflow*/
+        void document.querySelector("#hero").offsetwidth;
+        icons.forEach((icon) => {
+          icon.classList.add("animated");
+        });
+      }
+      /*Initial animation*/
+      animateIcons();
+      setTimeout(animatedIcons, 6000);
     </script>
   </body>
 </html>
